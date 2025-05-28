@@ -22,7 +22,7 @@
     <p>No books found.</p>
 @endif
 
-<script src="{{ asset('js/search.js') }}"></script>
+<script src="{{ asset('js/book.js') }}"></script>
 
 </body>
 </html>
