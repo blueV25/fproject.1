@@ -17,8 +17,5 @@ class savedbookController extends Controller
         return response()->json($book);
     }
 
-    public function destroy($id) {
-        savedbook::destroy($id);
-        return redirect()->back();
-    }
+
 }
