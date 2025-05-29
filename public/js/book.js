@@ -1,4 +1,3 @@
-
 function searchBooks() {
     const query = document.getElementById('query').value.trim().toLowerCase();
     if (!query) return;
@@ -32,22 +31,25 @@ function displayResults(books) {
             ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
             : '';
         const workKey = book.key.replace('/works/', '');
-        const bookDiv = document.createElement('div');
-        bookDiv.classList.add('book');
-        bookDiv.style.cursor = 'pointer';
-        bookDiv.style.margin = '10px 0';
 
-        bookDiv.innerHTML = `
-            <img src="${coverUrl}" width="100" alt="Cover" />
-            <h4>${title}</h4>
-            <p>by ${author}</p>
+        // Create card
+        const card = document.createElement('div');
+        card.classList.add('search-book-card');
+        card.style.cursor = 'pointer';
+
+        card.innerHTML = `
+            <img class="cover" src="${coverUrl}" alt="Cover" />
+            <div class="info">
+                <div class="title">${title}</div>
+                <div class="author">Author: ${author}</div>
+            </div>
         `;
 
-        bookDiv.addEventListener('click', () => {
+        card.addEventListener('click', () => {
             openBookModal(workKey);
         });
 
-        resultsDiv.appendChild(bookDiv);
+        resultsDiv.appendChild(card);
     });
 }
 
